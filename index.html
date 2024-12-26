@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Decision Tree</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="head-title-design">Interactive Decision Tree</h1>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="form-design" id="step1">
+        <div class="label-design">
+          <label class="label-title"
+            >Do you prefer the mountains or the beach?</label
+          >
+          <select id="prefer" class="select-design">
+            <option value="">Select...</option>
+            <option value="mountains">Mountains</option>
+            <option value="beach">Beach</option>
+          </select>
+          <div class="error-message"></div>
+        </div>
+        <button class="next-button" onclick="nextStep('step1', 'step2')">
+          Next
+        </button>
+      </div>
+
+      <div class="form-design hidden" id="step2">
+        <div class="label-design">
+          <label class="label-title"
+            >Are you looking for adventure or relaxation?</label
+          >
+          <select id="adventure" class="select-design">
+            <option value="">Select...</option>
+            <option value="adventure">Adventure</option>
+            <option value="relaxation">Relaxation</option>
+          </select>
+          <div class="error-message"></div>
+        </div>
+        <button class="next-button" onclick="nextStep('step2', 'step3')">
+          Next
+        </button>
+        <button class="back-button" onclick="backStep('step2', 'step1')">
+          Back
+        </button>
+      </div>
+
+      <div class="form-design hidden" id="step3">
+        <div class="label-design">
+          <label class="label-title">What’s your budget?</label>
+          <select id="budget" class="select-design">
+            <option value="">Select...</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <div class="error-message" id="error-step3"></div>
+        </div>
+        <button class="next-button" onclick="formDataGenerat()">
+          Get Recommendation
+        </button>
+        <button class="back-button" onclick="backStep('step3', 'step2')">
+          Back
+        </button>
+      </div>
+
+      <div class="result hidden" id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
